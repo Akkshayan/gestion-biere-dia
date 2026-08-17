@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erreur - StockBiere DIAGO</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <%- include("partials/entete", { utilisateur }) %>
+  <main class="page-erreur">
+    <h1>Un probleme est survenu</h1>
+    <p><%= message %></p>
+    <p><a href="/tableau-bord">Retour au tableau de bord</a></p>
+  </main>
+</body>
+</html>

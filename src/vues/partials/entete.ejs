@@ -1,0 +1,11 @@
+<header class="entete">
+    <div class="entete-titre">StockBiere DIAGO</div>
+    <div class="entete-utilisateur">
+      <span><%= utilisateur.nom %> (<%= utilisateur.role %>)</span>
+      <a href="/tableau-bord">Tableau de bord</a>
+      <a href="/historique">Historique</a>
+      <form action="/deconnexion" method="POST" class="form-inline">
+        <button type="submit" class="bouton-lien">Deconnexion</button>
+      </form>
+    </div>
+  </header>

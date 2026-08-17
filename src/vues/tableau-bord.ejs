@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tableau de bord - StockBiere DIAGO</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <%- include("partials/entete", { utilisateur }) %>
+
+  <main class="page-tableau-bord">
+    <h1>Tableau de bord</h1>
+    <p>Prochaine livraison dans <%= joursRestants %> jour(s).</p>
+
+    <div class="grille-references">
+      <% references.forEach(function(ref) { %>
+        <div class="carte-reference statut-<%= ref.statut %>">
+          <% if (ref.image) { %>
+            <img src="/images/<%= ref.image %>" alt="<%= ref.nom %>" class="photo-biere" />
+          <% } else { %>
+            <div class="icone-biere">🍺</div>
+          <% } %>
+          <h2><%= ref.nom %></h2>
+          <p class="conditionnement"><%= ref.conditionnement %></p>
+          <p class="quantite"><%= ref.quantite %> unites</p>
+          <p class="statut-texte">
+            <span class="pastille statut-<%= ref.statut %>"></span>
+            <% if (ref.statut === 'rouge') { %>
+              Rupture proche
+            <% } else if (ref.statut === 'orange') { %>
+              Stock bas
+            <% } else { %>
+              Stock suffisant
+            <% } %>
+          </p>
+        </div>
+      <% }); %>
+    </div>
+
+    <% if (utilisateur.role === 'admin') { %>
+      <p><a href="/mouvement/nouveau" class="bouton">Saisir un mouvement de stock</a></p>
+    <% } %>
+  </main>
+
+  <script>
+    setTimeout(function() {
+      window.location.reload();
+    }, 30000);
+  </script>
+</body>
+</html>

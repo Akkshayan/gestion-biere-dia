@@ -1,0 +1,261 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #222222;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  a {
+    color: #0a5c36;
+  }
+  
+  .entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: #0a5c36;
+    color: #ffffff;
+  }
+  
+  .entete-titre {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .entete-utilisateur {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .form-inline {
+    display: inline;
+  }
+  
+  .bouton-lien {
+    background: none;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .page-connexion {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .carte-connexion {
+    width: 100%;
+    max-width: 360px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .sous-titre {
+    color: #555555;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .carte-connexion form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: left;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  select {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  fieldset {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+  }
+  
+  .option-radio {
+    display: block;
+    font-weight: normal;
+    margin: 0.3rem 0;
+  }
+  
+  button,
+  .bouton {
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    background: #0a5c36;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  button:hover,
+  .bouton:hover {
+    background: #084a2b;
+  }
+  
+  .message-erreur {
+    background: #fdecea;
+    color: #611a15;
+    border: 1px solid #f5c6cb;
+    padding: 0.75rem;
+    border-radius: 4px;
+  }
+  
+  .message-succes {
+    background: #e9f7ef;
+    color: #0b3d24;
+    border: 1px solid #b7e4c7;
+    padding: 0.75rem;
+    border-radius: 4px;
+  }
+  
+  .page-tableau-bord,
+  .page-historique,
+  .page-mouvement,
+  .page-erreur {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  
+  .grille-references {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .carte-reference {
+    flex: 1 1 200px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .icone-biere {
+    font-size: 2rem;
+  }
+  
+  .carte-reference h2 {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+  
+  .conditionnement {
+    color: #666666;
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+  }
+  
+  .quantite {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0.4rem 0;
+  }
+  
+  .statut-texte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: bold;
+  }
+  
+  .pastille {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .statut-vert .pastille,
+  .pastille.statut-vert {
+    background: #1e8e3e;
+  }
+  .statut-vert {
+    border-color: #1e8e3e;
+  }
+  
+  .statut-orange .pastille,
+  .pastille.statut-orange {
+    background: #e8710a;
+  }
+  .statut-orange {
+    border-color: #e8710a;
+  }
+  
+  .statut-rouge .pastille,
+  .pastille.statut-rouge {
+    background: #c5221f;
+  }
+  .statut-rouge {
+    border-color: #c5221f;
+    border-width: 2px;
+  }
+  
+  .tableau-historique {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .tableau-historique th,
+  .tableau-historique td {
+    border: 1px solid #dddddd;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  
+  .tableau-historique th {
+    background: #f2f2f2;
+  }
+  
+  @media (max-width: 480px) {
+    .entete {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  .photo-biere {
+    width: 100%;
+    max-width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+  }

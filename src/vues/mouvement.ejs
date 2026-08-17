@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saisir un mouvement - StockBiere DIAGO</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <%- include("partials/entete", { utilisateur }) %>
+
+  <main class="page-mouvement">
+    <p><a href="/tableau-bord">&larr; Retour au tableau de bord</a></p>
+    <h1>Saisir un mouvement de stock</h1>
+
+    <% if (erreur) { %>
+      <p class="message-erreur" role="alert"><%= erreur %></p>
+    <% } %>
+    <% if (succes) { %>
+      <p class="message-succes" role="status"><%= succes %></p>
+    <% } %>
+
+    <form action="/mouvement/nouveau" method="POST" class="formulaire-mouvement">
+      <label for="reference_id">Reference</label>
+      <select id="reference_id" name="reference_id" required>
+        <option value="" disabled selected>Choisir une reference</option>
+        <% references.forEach(function(ref) { %>
+          <option value="<%= ref.id %>"><%= ref.nom %></option>
+        <% }); %>
+      </select>
+
+      <fieldset>
+        <legend>Type de mouvement</legend>
+        <label class="option-radio">
+          <input type="radio" name="type" value="entree" required /> Entree (livraison)
+        </label>
+        <label class="option-radio">
+          <input type="radio" name="type" value="sortie" /> Sortie (mise en rayon, casse)
+        </label>
+      </fieldset>
+
+      <label for="quantite">Quantite</label>
+      <input type="number" id="quantite" name="quantite" min="1" step="1" required />
+
+      <button type="submit">Valider</button>
+    </form>
+  </main>
+</body>
+</html>
